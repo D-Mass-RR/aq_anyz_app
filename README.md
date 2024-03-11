@@ -16,7 +16,7 @@ Aqkiiz React-Native</h1>
 Clone the repo to your machine and install deps :
 
 ```sh
-git clone https://github.com/user/repo-name
+git clone https://github.com/D-Mass-RR/aq_anyz_app
 
 pnpm install
 ```
@@ -44,4 +44,4 @@ This project utilizes Expo CLI instead of React Native CLI for several reasons:
 
 3. **Additional Benefits:** In addition to rapid development, Expo CLI provides other advantages tailored to our specific use case, such as simplified build and deployment processes, access to Expo's extensive library of plugins and services, and seamless integration with Expo's development tools.
 
-## ✍️ Documentation
+[//]: # (## ✍️ Documentation)
