@@ -2,14 +2,14 @@ import type TranslateOptions from 'i18next';
 import i18n from 'i18next';
 import memoize from 'lodash.memoize';
 import { useCallback } from 'react';
-import { I18nManager, NativeModules } from 'react-native';
+import { NativeModules } from 'react-native';
 import { useMMKVString } from 'react-native-mmkv';
 
 import { storage } from '../storage';
 import type { Language, resources } from './resources';
 import type { RecursiveKeyOf } from './types';
 
-type DefaultLocale = typeof resources.en.translation;
+type DefaultLocale = typeof resources.eng.translation;
 export type TxKeyPath = RecursiveKeyOf<DefaultLocale>;
 
 export const LOCAL = 'local';
@@ -25,11 +25,6 @@ export const translate = memoize(
 
 export const changeLanguage = (lang: Language) => {
   i18n.changeLanguage(lang);
-  if (lang === 'ar') {
-    I18nManager.forceRTL(true);
-  } else {
-    I18nManager.forceRTL(false);
-  }
   if (__DEV__) NativeModules.DevSettings.reload();
   // else RNRestart.restart();
 };

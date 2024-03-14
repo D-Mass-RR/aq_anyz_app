@@ -19,3 +19,7 @@ yarn-error.log
 
 expo-env.d.ts
 # @end expo-cli
+# Expo
+.expo
+dist/
+web-build/

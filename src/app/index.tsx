@@ -4,15 +4,16 @@ import 'react-native-gesture-handler';
 
 import { NavigationContainer, ThemeProvider } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useFonts } from 'expo-font';
 import { SplashScreen } from 'expo-router';
 import React, { useCallback, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
+import { routes } from '@/app/routes';
 import { loadSelectedTheme } from '@/core';
 import { useThemeConfig } from '@/core/use-theme-config';
-import Intro from '@/sceens/Intro';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -22,14 +23,19 @@ SplashScreen.preventAutoHideAsync();
 
 const Stack = createStackNavigator();
 export default function RootLayout() {
+  const [fontsLoaded, fontError] = useFonts({
+    Gilroy: require('../../assets/fonts/Gilroy.ttf'),
+    'Gilroy-Light': require('../../assets/fonts/Gilroy-Light.ttf'),
+    'Gilroy-Medium': require('../../assets/fonts/Gilroy-Medium.ttf'),
+    'Gilroy-Bold': require('../../assets/fonts/Gilroy-Black.ttf'),
+  });
+
   const hideSplash = useCallback(async () => {
     await SplashScreen.hideAsync();
   }, []);
   useEffect(() => {
-    setTimeout(() => {
-      hideSplash();
-    }, 1000);
-  }, [hideSplash]);
+    hideSplash();
+  }, [hideSplash, fontError, fontsLoaded]);
 
   return (
     <Providers>
@@ -40,7 +46,17 @@ export default function RootLayout() {
           headerShown: false,
         }}
       >
-        <Stack.Screen component={Intro} name="intro" />
+        {routes.map((item, index) => (
+          <Stack.Screen
+            {...item}
+            key={index}
+            options={{
+              animationTypeForReplace: 'push',
+              animationEnabled: true,
+              gestureResponseDistance: 50,
+            }}
+          />
+        ))}
       </Stack.Navigator>
     </Providers>
   );
