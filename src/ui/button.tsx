@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import React from 'react';
-import type { TouchableOpacityProps } from 'react-native';
+import type { TouchableOpacityProps, ViewStyle } from 'react-native';
 import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
 import type { VariantProps } from 'tailwind-variants';
 import { tv } from 'tailwind-variants';
@@ -30,7 +30,7 @@ const button = tv({
       },
       sm: {
         container: 'h-14 px-1 w-1/2',
-        label: 'text-base font-light',
+        label: 'text-xl font-normal',
       },
     },
     disabled: {
@@ -65,10 +65,14 @@ interface Props
   loading?: boolean;
   className?: string;
   textClassName?: string;
+
   icon?: ReactNode;
+  iconStyle?: ViewStyle;
+  iconR?: ReactNode;
+  iconRStyle?: ViewStyle;
 }
 
-export const Button = React.forwardRef<TouchableOpacity, Props>(
+const Button = React.forwardRef<TouchableOpacity, Props>(
   (
     {
       label: text,
@@ -79,6 +83,7 @@ export const Button = React.forwardRef<TouchableOpacity, Props>(
       className = '',
       textClassName = 'text-2xl',
       icon,
+      iconR,
       ...props
     },
     ref
@@ -106,6 +111,7 @@ export const Button = React.forwardRef<TouchableOpacity, Props>(
                 <Text className={styles.label({ className: textClassName })}>
                   {text}
                 </Text>
+                {iconR && <View className="absolute right-9">{iconR}</View>}
               </>
             )}
           </>
@@ -114,3 +120,5 @@ export const Button = React.forwardRef<TouchableOpacity, Props>(
     );
   }
 );
+
+export { Button };

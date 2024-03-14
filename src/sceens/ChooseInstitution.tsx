@@ -1,0 +1,3 @@
+const ChooseInstitution = () => {};
+
+export { ChooseInstitution };

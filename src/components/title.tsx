@@ -1,15 +1,30 @@
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 
 import { Text, View } from '@/ui';
 
 type Props = {
   text: string;
+  className?: string;
+  textClassName?: string;
 };
-export const Title = ({ text }: Props) => {
+export const Title = ({
+  text,
+  className,
+  textClassName = 'text-3xl tracking-tight',
+}: Props) => {
   return (
-    <View className="flex-row items-center justify-center  py-4 pb-2">
-      <Text className="pr-2 text-2xl">{text}</Text>
-      <View className="h-[2px] flex-1 bg-neutral-300" />
+    <View className={className + ' max-h-fit'}>
+      <Text style={styles.text} className={textClassName}>
+        {text}
+      </Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  text: {
+    fontFamily: 'gropled',
+    textAlign: 'center',
+  },
+});

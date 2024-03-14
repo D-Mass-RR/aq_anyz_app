@@ -1,9 +1,10 @@
 import type { FC } from 'react';
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
+  withDelay,
   withSpring,
 } from 'react-native-reanimated';
 
@@ -17,7 +18,7 @@ type Props = {
   animationId: number;
   onPress: (value: LanguageId) => void;
 };
-const AnimatedButton: FC<Props> = ({ item, animationId, onPress }) => {
+const AnimatedButton: FC<Props> = memo(({ item, animationId, onPress }) => {
   const translateY = useSharedValue(300);
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -26,11 +27,14 @@ const AnimatedButton: FC<Props> = ({ item, animationId, onPress }) => {
   });
   useEffect(() => {
     if (animationId === item.id)
-      translateY.value = withSpring(0, {
-        damping: 5,
-        velocity: 0,
-        stiffness: 15,
-      });
+      translateY.value = withDelay(
+        3000,
+        withSpring(0, {
+          damping: 5,
+          velocity: 0,
+          stiffness: 15,
+        })
+      );
   }, [animationId, item.id, translateY]);
   const handlePress = () => {
     onPress(item.value);
@@ -45,7 +49,7 @@ const AnimatedButton: FC<Props> = ({ item, animationId, onPress }) => {
       />
     </Animated.View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   box: {

@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
+  withDelay,
   withSpring,
 } from 'react-native-reanimated';
 
 import Logo from '@/ui/icons/logo';
 
-const AnimatedLogo = () => {
+const AnimatedLogo = memo(() => {
   const translateY = useSharedValue(700);
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -16,12 +17,14 @@ const AnimatedLogo = () => {
     };
   });
   const startAnimation = () => {};
-  translateY.value = withSpring(0, {
-    damping: 5,
-    velocity: 1,
-    stiffness: 20,
-  });
-
+  translateY.value = withDelay(
+    1000,
+    withSpring(0, {
+      damping: 5,
+      velocity: 1,
+      stiffness: 12,
+    })
+  );
   useEffect(() => {
     startAnimation();
   }, []);
@@ -31,7 +34,8 @@ const AnimatedLogo = () => {
       <Logo />
     </Animated.View>
   );
-};
+});
+
 const styles = StyleSheet.create({
   box: {
     justifyContent: 'center',

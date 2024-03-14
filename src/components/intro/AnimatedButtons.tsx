@@ -1,6 +1,6 @@
 /** Core **/
 import type { FC } from 'react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
 /** Types **/
 import type { Buttons, LanguageId } from '@/@types/components';
@@ -18,7 +18,7 @@ const buttons: Buttons[] = [
   { label: 'Русский', icon: '🇷🇺', id: 2, value: 'ru' },
 ];
 
-const AnimatedButtons: FC<Props> = ({ onPress }) => {
+const AnimatedButtons: FC<Props> = memo(({ onPress }) => {
   const [animationId, setAnimationId] = useState<number>(0);
   const handleStart = () => setAnimationId((prev) => prev + 1);
   const intervalID = useRef<ReturnType<typeof setInterval>>();
@@ -46,6 +46,6 @@ const AnimatedButtons: FC<Props> = ({ onPress }) => {
       ))}
     </View>
   );
-};
+});
 
 export { AnimatedButtons };

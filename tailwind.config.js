@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         gilroy: ['Gilroy'],
+        gropled: ['gropled'],
         fontWeight: {
           light: 'Gilroy-Light',
           normal: 'Gilroy-Medium',

@@ -25,6 +25,7 @@ const Stack = createStackNavigator();
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
     Gilroy: require('../../assets/fonts/Gilroy.ttf'),
+    gropled: require('../../assets/fonts/gropled-bold.otf'),
     'Gilroy-Light': require('../../assets/fonts/Gilroy-Light.ttf'),
     'Gilroy-Medium': require('../../assets/fonts/Gilroy-Medium.ttf'),
     'Gilroy-Bold': require('../../assets/fonts/Gilroy-Black.ttf'),
