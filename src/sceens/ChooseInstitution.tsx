@@ -6,7 +6,7 @@ import { InstitutionCard } from '@/components/cards/InstitutionCard';
 import { Title } from '@/components/title';
 import { SafeAreaView, View } from '@/ui';
 
-const ChooseInstitution = () => {
+export default function ChooseInstitution() {
   const { navigate } = useNavigation();
   const onSelect = () => {
     navigate('' as never);
@@ -59,6 +59,4 @@ const ChooseInstitution = () => {
       </View>
     </SafeAreaView>
   );
-};
-
-export { ChooseInstitution };
+}

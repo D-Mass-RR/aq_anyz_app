@@ -1,4 +1,4 @@
-import { ChooseInstitution } from '@/sceens/ChooseInstitution';
+import ChooseInstitution from '@/sceens/ChooseInstitution';
 import Intro from '@/sceens/Intro';
 import Welcome from '@/sceens/Welcome';
 
