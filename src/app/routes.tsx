@@ -1,3 +1,4 @@
+import { ChooseInstitution } from '@/sceens/ChooseInstitution';
 import Intro from '@/sceens/Intro';
 import Welcome from '@/sceens/Welcome';
 
@@ -5,4 +6,5 @@ import Welcome from '@/sceens/Welcome';
 export const routes = [
   { name: 'intro', component: Intro },
   { name: 'welcome', component: Welcome },
+  { name: 'chooseInstitution', component: ChooseInstitution },
 ];

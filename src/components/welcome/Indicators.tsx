@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Platform, StyleSheet } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -33,7 +34,10 @@ const Indicator = ({ active }: { active: boolean }) => {
 
 const Indicators = ({ activeId }: { activeId: number }) => {
   return (
-    <View className="absolute right-6 top-16 flex flex-row">
+    <View
+      style={styles.container}
+      className="absolute right-6 top-16 flex flex-row"
+    >
       {[0, 1, 2].map((item) => (
         <Indicator key={item} active={item === activeId} />
       ))}
@@ -41,4 +45,7 @@ const Indicators = ({ activeId }: { activeId: number }) => {
   );
 };
 
+const styles = StyleSheet.create({
+  container: Platform.select({ default: {}, android: { top: 36 } }),
+});
 export { Indicators };

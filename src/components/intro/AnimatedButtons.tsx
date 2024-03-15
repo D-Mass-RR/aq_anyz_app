@@ -1,6 +1,7 @@
 /** Core **/
 import type { FC } from 'react';
 import React, { memo, useEffect, useRef, useState } from 'react';
+import { Platform, StyleSheet } from 'react-native';
 
 /** Types **/
 import type { Buttons, LanguageId } from '@/@types/components';
@@ -35,7 +36,10 @@ const AnimatedButtons: FC<Props> = memo(({ onPress }) => {
   }, [animationId]);
 
   return (
-    <View className="h-[40%] w-full justify-end font-bold">
+    <View
+      style={styles.container}
+      className="h-[40%] w-full justify-end font-bold"
+    >
       {buttons.map((item) => (
         <AnimatedButton
           onPress={onPress}
@@ -46,6 +50,13 @@ const AnimatedButtons: FC<Props> = memo(({ onPress }) => {
       ))}
     </View>
   );
+});
+
+const styles = StyleSheet.create({
+  container: Platform.select({
+    android: { paddingBottom: 10 },
+    default: {},
+  }),
 });
 
 export { AnimatedButtons };

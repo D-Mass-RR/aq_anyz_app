@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
+import { twMerge } from 'tailwind-merge';
 
 import { Text, View } from '@/ui';
 
@@ -14,7 +15,7 @@ export const Title = ({
   textClassName = 'text-3xl tracking-tight',
 }: Props) => {
   return (
-    <View className={className + ' max-h-fit'}>
+    <View className={twMerge([className, 'max-h-fit'])}>
       <Text style={styles.text} className={textClassName}>
         {text}
       </Text>

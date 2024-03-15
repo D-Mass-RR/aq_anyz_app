@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core';
 import { Image } from 'expo-image';
 import React, { useState } from 'react';
 import Animated, { FadeInRight, FadeOutLeft } from 'react-native-reanimated';
@@ -32,6 +33,7 @@ const CustomerImage = () => {
     >
       <Image
         className="h-full w-full"
+        contentFit={'fill'}
         source={require('../../assets/images/customer.png')}
       />
     </Animated.View>
@@ -51,10 +53,12 @@ const titles = [
 ];
 export default function Welcome() {
   const [activeSlideId, setActiveSlideId] = useState(0);
-
+  const { navigate } = useNavigation();
   const next = () => {
     if (activeSlideId < 2) {
       setActiveSlideId((prev) => prev + 1);
+    } else {
+      navigate('chooseInstitution' as never);
     }
   };
 
