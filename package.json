@@ -27,7 +27,7 @@
     "@react-navigation/stack": "^6.3.27",
     "@shopify/flash-list": "1.6.3",
     "app-icon-badge": "^0.0.15",
-    "expo": "~50.0.8",
+    "expo": "~50.0.11",
     "expo-build-properties": "~0.11.1",
     "expo-constants": "~15.4.5",
     "expo-dev-client": "~3.3.9",
@@ -50,6 +50,7 @@
     "react-i18next": "^12.3.1",
     "react-native": "0.73.4",
     "react-native-avoid-softinput": "^4.0.2",
+    "react-native-copilot": "^3.3.0",
     "react-native-flash-message": "^0.4.2",
     "react-native-gesture-handler": "~2.14.1",
     "react-native-mmkv": "2.6.3",
@@ -102,7 +103,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/user/repo-name.git"
+    "url": "git+https://github.com/D-Mass-RR/aq_anyz_app"
   },
   "packageManager": "pnpm@8.6.5",
   "osMetadata": {

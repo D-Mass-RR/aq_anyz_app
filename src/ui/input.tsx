@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import * as React from 'react';
 import type {
   Control,
@@ -7,8 +8,7 @@ import type {
 } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import type { TextInput, TextInputProps } from 'react-native';
-import { I18nManager, StyleSheet, View } from 'react-native';
-import { TextInput as NTextInput } from 'react-native';
+import { StyleSheet, TextInput as NTextInput, View } from 'react-native';
 import { tv } from 'tailwind-variants';
 
 import colors from './colors';
@@ -51,6 +51,7 @@ export interface NInputProps extends TextInputProps {
   label?: string;
   disabled?: boolean;
   error?: string;
+  icon?: ReactNode;
 }
 
 type TRule = Omit<
@@ -88,6 +89,9 @@ export const Input = React.forwardRef<TextInput, NInputProps>((props, ref) => {
   return (
     <View className={styles.container()}>
       {label && <Text className={styles.label()}>{label}</Text>}
+      {props.icon && (
+        <View className="absolute left-6 top-4 z-50">{props.icon}</View>
+      )}
       <NTextInput
         testID="NTextInput"
         ref={ref}
@@ -96,10 +100,7 @@ export const Input = React.forwardRef<TextInput, NInputProps>((props, ref) => {
         onBlur={onBlur}
         onFocus={onFocus}
         {...inputProps}
-        style={StyleSheet.flatten([
-          { writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr' },
-          inputProps.style,
-        ])}
+        style={StyleSheet.flatten([inputProps.style])}
       />
       {error && (
         <Text className="text-sm text-danger-400 dark:text-danger-600">

@@ -8,7 +8,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter'],
+        gilroy: ['Gilroy'],
+        gropled: ['gropled'],
+        fontWeight: {
+          light: 'Gilroy-Light',
+          normal: 'Gilroy-Medium',
+          bold: 'Gilroy-Black',
+        },
       },
       colors,
     },

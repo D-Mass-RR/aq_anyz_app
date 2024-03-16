@@ -1,15 +1,14 @@
 import type { ReactNode } from 'react';
 import React from 'react';
-import type { TouchableOpacityProps } from 'react-native';
+import type { TouchableOpacityProps, ViewStyle } from 'react-native';
 import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
 import type { VariantProps } from 'tailwind-variants';
 import { tv } from 'tailwind-variants';
 
 const button = tv({
   slots: {
-    container:
-      'flex flex-row items-center justify-center w-full rounded-lg my-2 px-4',
-    label: 'text-base font-[700]',
+    container: 'flex flex-row items-center justify-center rounded-lg my-2 px-4',
+    label: 'text-base font-bold',
     indicator: 'text-white h-6',
   },
 
@@ -18,6 +17,10 @@ const button = tv({
       default: {
         label: 'text-white',
         container: 'bg-transparent rounded-xl',
+      },
+      orange: {
+        label: 'text-white text-base',
+        container: 'bg-orange-500 rounded-xl w-full',
       },
     },
     size: {
@@ -30,9 +33,8 @@ const button = tv({
         label: 'text-xl',
       },
       sm: {
-        container: 'h-8 px-3',
-        label: 'text-sm',
-        indicator: 'h-2',
+        container: 'h-14 px-1 w-1/2',
+        label: 'text-xl font-normal',
       },
     },
     disabled: {
@@ -67,10 +69,14 @@ interface Props
   loading?: boolean;
   className?: string;
   textClassName?: string;
+
   icon?: ReactNode;
+  iconStyle?: ViewStyle;
+  iconR?: ReactNode;
+  iconRStyle?: ViewStyle;
 }
 
-export const Button = React.forwardRef<TouchableOpacity, Props>(
+const Button = React.forwardRef<TouchableOpacity, Props>(
   (
     {
       label: text,
@@ -81,6 +87,7 @@ export const Button = React.forwardRef<TouchableOpacity, Props>(
       className = '',
       textClassName = 'text-2xl',
       icon,
+      iconR,
       ...props
     },
     ref
@@ -108,6 +115,7 @@ export const Button = React.forwardRef<TouchableOpacity, Props>(
                 <Text className={styles.label({ className: textClassName })}>
                   {text}
                 </Text>
+                {iconR && <View className="absolute right-9">{iconR}</View>}
               </>
             )}
           </>
@@ -116,3 +124,5 @@ export const Button = React.forwardRef<TouchableOpacity, Props>(
     );
   }
 );
+
+export { Button };
