@@ -3,15 +3,13 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { I18nManager } from 'react-native';
 
-import { getLanguage } from '@/core';
-
+// import { getLanguage } from '@/core';
 import { resources } from './resources';
 
 export * from './utils';
-
 i18n.use(initReactI18next).init({
   resources,
-  lng: getLanguage() || locale,
+  lng: locale, // TODO: bug: type of getLanguage is not function (is it undefined)
   fallbackLng: 'en',
   compatibilityJSON: 'v3', // By default, React Native projects does not support Intl
 

@@ -3,13 +3,14 @@ import { Image } from 'expo-image';
 import React from 'react';
 
 import { InstitutionCard } from '@/components/cards/InstitutionCard';
+import { Separator } from '@/components/Separator';
 import { Title } from '@/components/title';
 import { SafeAreaView, View } from '@/ui';
 
 export default function ChooseInstitution() {
   const { navigate } = useNavigation();
   const onSelect = () => {
-    navigate('' as never);
+    navigate('selectOption' as never);
   };
   return (
     <SafeAreaView className="flex-1 items-center justify-center bg-[#F9F9F9] px-6">
@@ -39,7 +40,7 @@ export default function ChooseInstitution() {
             </View>
           </>
         </InstitutionCard>
-        <View className="my-6 w-full border-[1px] border-[#EEEEEE]" />
+        <Separator className="my-6" />
         <InstitutionCard
           onPress={onSelect}
           id="sweets"

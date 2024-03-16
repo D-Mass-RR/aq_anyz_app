@@ -18,6 +18,10 @@ const button = tv({
         label: 'text-white',
         container: 'bg-transparent rounded-xl',
       },
+      orange: {
+        label: 'text-white text-base',
+        container: 'bg-orange-500 rounded-xl w-full',
+      },
     },
     size: {
       default: {

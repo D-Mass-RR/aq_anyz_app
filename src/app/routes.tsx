@@ -1,6 +1,6 @@
 import ChooseInstitution from '@/sceens/ChooseInstitution';
 import Intro from '@/sceens/Intro';
-import Main from '@/sceens/Main';
+import Tabs from '@/sceens/Main/Tabs';
 import SelectAddress from '@/sceens/SelectAddress';
 import SelectOption from '@/sceens/SelectOption';
 import Welcome from '@/sceens/Welcome';
@@ -12,5 +12,5 @@ export const routes = [
   { name: 'chooseInstitution', component: ChooseInstitution },
   { name: 'selectOption', component: SelectOption },
   { name: 'selectAddress', component: SelectAddress },
-  { name: 'Main', component: Main },
+  { name: 'Tabs', component: Tabs },
 ];

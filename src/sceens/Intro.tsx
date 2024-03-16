@@ -2,7 +2,6 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 
-import type { LanguageId } from '@/@types/components';
 /** Components **/
 import { AnimatedButtons } from '@/components/intro/AnimatedButtons';
 import { AnimatedLogo } from '@/components/intro/AnimatedLogo';
@@ -12,9 +11,8 @@ export default function Intro() {
   // const { setLanguage } = useSelectedLanguage();
   const navigation = useNavigation();
 
-  const handleSelectLanguage = (value: LanguageId) => {
+  const handleSelectLanguage = () => {
     // setLanguage(value);
-    console.log(value);
     navigation.navigate('welcome' as never);
   };
 

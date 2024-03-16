@@ -1,3 +1,5 @@
-export const Card = () => {
-  // return ();
+const Card = ({}) => {
+  return;
 };
+
+export { Card };
