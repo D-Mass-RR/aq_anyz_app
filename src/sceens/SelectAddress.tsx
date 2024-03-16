@@ -35,12 +35,11 @@ export default function SelectAddress({}) {
       });
     }
   };
-  const { goBack } = useNavigation();
   return (
     <SafeAreaView className="h-full flex-1 items-center justify-start bg-[#F9F9F9] px-6 pt-10">
       <View className="mb-4 flex w-full flex-row items-center justify-between">
         <TouchableOpacity
-          onPress={goBack}
+          onPress={navigation.goBack}
           className="h-12 w-16 items-center justify-center rounded-2xl bg-white shadow-md shadow-charcoal-100"
         >
           <ArrowBack />

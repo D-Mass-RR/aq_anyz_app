@@ -62,7 +62,9 @@ export default function Welcome() {
     }
   };
 
-  const skip = () => {};
+  const skip = () => {
+    navigate('chooseInstitution' as never);
+  };
 
   return (
     <SafeAreaView className="flex h-full w-full items-center justify-start bg-white">

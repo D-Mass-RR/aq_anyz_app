@@ -12,7 +12,7 @@ import ScooterSvg from '../../assets/svg/ScooterSvg';
 export default function SelectOption() {
   const { navigate, goBack } = useNavigation();
   const onPressDelivery = () => {
-    navigate('Main' as never);
+    navigate('Tabs' as never);
   };
   const onPressPickup = () => {
     navigate('selectAddress' as never);

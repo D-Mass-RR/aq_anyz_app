@@ -5,7 +5,6 @@ import SelectAddress from '@/sceens/SelectAddress';
 import SelectOption from '@/sceens/SelectOption';
 import Welcome from '@/sceens/Welcome';
 
-// TODO: Set types
 export const routes = [
   { name: 'intro', component: Intro },
   { name: 'welcome', component: Welcome },
